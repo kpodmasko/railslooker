@@ -1,17 +1,20 @@
-import React from "react"
+import React, { Component } from "react"
 import "../css/Closer.css"
+// import FontAwesome from "react-fontawesome"
 
-const Closer = () => {
-  return (
-      <div className="Closer tar">
-          <span className="Closer__item">
+class Closer extends Component{
+  render() {
+      return (
+          <div className="Closer tar">
+          <span className="Closer__item" onClick={ this.props.closeFullInfo }>
                         {/*<FontAwesome*/}
               {/*name="rocket"*/}
               {/*size="2x"/>*/}
               Х
           </span>
-      </div>
-  )
-};
+          </div>
+      )
+  }
+}
 
 export default Closer;
