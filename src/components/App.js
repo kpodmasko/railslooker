@@ -10,18 +10,31 @@ class App extends Component {
         super(props);
 
         this.state = {
-            activeTrain : null,
-            trainsList : trains
+            window: true,
+            trainsList : trains,
+            activeTrain : null
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        if(nextProps === this.props) {
-            return false;
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.window !== nextState.window) {
+            return true;
         }
+
+        if (this.state.activeTrain !== nextState.activeTrain) {
+            return true;
+        }
+
+        if (this.state.trainsList !== nextState.trainsList) {
+            return true;
+        }
+
+        return false;
     }
 
+
     render() {
+        console.log(this.state.window);
         return (
             <div className="App container">
                 <div className="row">
@@ -31,14 +44,19 @@ class App extends Component {
                     <div className="item item-6">
                         <TrainsList
                             trains = { this.state.trainsList }
+                            activeTrain = { this.state.activeTrain }
                             activeTrainSwitcher = { this.changeActiveTrain }
                             listWatcher = { this.changeTrainsList }
                         />
                     </div>
                 </div>
-                <div className="row">
+                <div className={ (this.state.window) ? "row hide" : "row" }>
                     <div className="item item-12">
-                        <SomeTrainFullInfo/>
+                        <SomeTrainFullInfo { ...this.state.trainsList.find((train) => {
+                            return train.number === this.state.activeTrain
+                        }) }
+                        closeFullInfo = { this.closeFullInfo.bind(this) }
+                        />
                     </div>
                 </div>
             </div>
@@ -47,9 +65,17 @@ class App extends Component {
 
     changeActiveTrain = (newActiveNumber) => {
         this.setState({
-            activeTrain : newActiveNumber
+            activeTrain : newActiveNumber,
+            window: false
         });
     };
+
+    closeFullInfo() {
+        this.setState({
+            window: true,
+            activeTrain: null
+        })
+    }
 
     changeTrainsList = (fields) => {
         let newTrainsList = [];
@@ -59,16 +85,18 @@ class App extends Component {
             !fields.route &&
             !fields.status) {
             newTrainsList = trains;
-        }else {
+        } else {
             for (let train of trains) {
                 if (this.checkOneTrain(train, fields)) {
                     newTrainsList.push(train);
                 }
             }
         }
+        let activeTrain = (newTrainsList.length) ? this.state.activeTrain : null;
 
         this.setState({
-            trainsList: newTrainsList
+            trainsList: newTrainsList,
+            activeTrain : activeTrain
         })
     };
 

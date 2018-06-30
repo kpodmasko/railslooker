@@ -1,81 +1,96 @@
-import React from "react"
+import React, { Component } from "react"
 import "../css/TrainGeneralInfo.css"
 
-const TrainGeneralInfo = () => {
-    return (
-        <div className="TrainGeneralInfo tac">
-            <h2 className="TrainGeneralInfo__caption">Общая ифнормация</h2>
-            <div className="TrainGeneralInfo__description">
-                <div className="row">
-                    <div className="TrainGeneralInfo__headitem item item-6 tar">
-                        № поезда
-                    </div>
-                    <div className="item item-6 tal">
-                        1
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="TrainGeneralInfo__headitem item item-6 tar">
-                        Название поезда
-                    </div>
-                    <div className="item item-6 tal">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad consequatur eius error est eveniet, facere, incidunt ipsam nam natus nobis sapiente ullam ut! Aliquid asperiores consequatur dolores illum ipsa.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem culpa, ducimus earum facere libero nemo odio quibusdam soluta unde veritatis! Aliquam dicta dolorem expedita fuga iure, molestias odit sit veniam.
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="TrainGeneralInfo__headitem item item-6 tar">
-                        Тип поезда
-                    </div>
-                    <div className="item item-6 tal">
-                        Грузовой
-                    </div>
-                </div>
-                <div className="TrainGeneralInfo__typeSwitcher">
+class TrainGeneralInfo extends Component{
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            ...props,
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            ...nextProps
+        });
+    }
+
+    render() {
+        return (
+            <div className="TrainGeneralInfo tac">
+                <h2 className="TrainGeneralInfo__caption">Общая информация</h2>
+                <div className="TrainGeneralInfo__description">
                     <div className="row">
                         <div className="TrainGeneralInfo__headitem item item-6 tar">
-                            Название груза
+                            № поезда
                         </div>
                         <div className="item item-6 tal">
-                            Смола
+                            { (this.state.number) ? this.state.number : "" }
                         </div>
                     </div>
                     <div className="row">
                         <div className="TrainGeneralInfo__headitem item item-6 tar">
-                            Вес груза
+                            Название поезда
                         </div>
                         <div className="item item-6 tal">
-                            5000
+                            { (this.state.name) ? this.state.name : "" }
                         </div>
                     </div>
                     <div className="row">
                         <div className="TrainGeneralInfo__headitem item item-6 tar">
-                            Единица измерения груза
+                            Тип поезда
                         </div>
                         <div className="item item-6 tal">
-                            кг.
+                            { (this.state.type) ? this.state.type : "" }
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="TrainGeneralInfo__headitem item item-6 tar">
-                        Количество вагонов
+                    { (!this.state.freightOptions) ? "" : <div className="TrainGeneralInfo__typeSwitcher">
+                        <div className="row">
+                            <div className="TrainGeneralInfo__headitem item item-6 tar">
+                                Название груза
+                            </div>
+                            <div className="item item-6 tal">
+                                { (this.state.freightOptions.cargo) ? this.state.freightOptions.cargo : "" }
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="TrainGeneralInfo__headitem item item-6 tar">
+                                Вес груза
+                            </div>
+                            <div className="item item-6 tal">
+                                { (this.state.freightOptions.cargoWeight) ? this.state.freightOptions.cargoWeight : "" }
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="TrainGeneralInfo__headitem item item-6 tar">
+                                Единица измерения груза
+                            </div>
+                            <div className="item item-6 tal">
+                                { (this.state.freightOptions.cargoUnit) ? this.state.freightOptions.cargoUnit : "" }
+                            </div>
+                        </div>
+                    </div> }
+                    <div className="row">
+                        <div className="TrainGeneralInfo__headitem item item-6 tar">
+                            Количество вагонов
+                        </div>
+                        <div className="item item-6 tal">
+                            { (this.state.allCarriage) ? this.state.allCarriage : "" }
+                        </div>
                     </div>
-                    <div className="item item-6 tal">
-                        100
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="TrainGeneralInfo__headitem item item-6 tar">
-                        Количество заполненных вагонов
-                    </div>
-                    <div className="item item-6 tal">
-                        100
+                    <div className="row">
+                        <div className="TrainGeneralInfo__headitem item item-6 tar">
+                            Количество заполненных вагонов
+                        </div>
+                        <div className="item item-6 tal">
+                            { (this.state.fullCarriage) ? this.state.allCarriage : "" }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default TrainGeneralInfo;
