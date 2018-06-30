@@ -12,9 +12,13 @@ class TrainsListItem extends Component{
         }
     }
 
-    render = () => {
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props
+    }
+
+    render() {
         return (
-            <div className="TrainsList__item row">
+            <div className={ "TrainsList__item row " + this.props.className } onClick={ this.props.clickHandler }>
                 <div className="item item-1">{this.state.number}</div>
                 <div className="item item-5">{this.state.name}</div>
                 <div className="item item-3">{this.state.route}</div>

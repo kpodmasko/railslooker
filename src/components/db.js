@@ -36,6 +36,7 @@ const db = {
             "type" : 2,
             "allCarriage" : 100,
             "fullCarriage" : 100,
+            "freightOptions" : null,
             "status" : false,
             "curCoordinates" : [15.15, 15.15],
             "dep" : {
