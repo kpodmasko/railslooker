@@ -32,14 +32,17 @@ class App extends Component {
         return false;
     }
 
-
     render() {
-        console.log(this.state.window);
         return (
             <div className="App container">
                 <div className="row">
                     <div className="item item-6">
-                        <TrainsMap isMarkerShown/>
+                        <TrainsMap
+                            trains = { this.state.trainsList }
+                            activeTrain = { this.state.trainsList.find((train) => {
+                                return train.number === this.state.activeTrain
+                            }) }
+                        />
                     </div>
                     <div className="item item-6">
                         <TrainsList
@@ -93,6 +96,10 @@ class App extends Component {
             }
         }
         let activeTrain = (newTrainsList.length) ? this.state.activeTrain : null;
+        if (!activeTrain) {
+            this.closeFullInfo();
+        }
+
 
         this.setState({
             trainsList: newTrainsList,

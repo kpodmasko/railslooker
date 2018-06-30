@@ -23,7 +23,7 @@ class TrainsList extends Component {
             return <TrainsListItem
                 clickHandler = { this.handleClick(train.number) }
                 className = { (this.props.activeTrain === train.number) ? "active" : "" }
-                key = {train.number}
+                key = {"list" + train.number}
                 {...train}
             />
         });
