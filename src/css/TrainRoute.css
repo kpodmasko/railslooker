@@ -1,0 +1,19 @@
+.TrainRoute {
+  height: calc(100vh - 137px);
+  background-color:  #f7e7d5;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow-y: scroll;
+}
+
+.TrainRoute__caption {
+  font-size: 25px;
+}
+
+.TrainRoute__description {
+  font-size: 20px;
+}
+
+.TrainRoute__headitem {
+  font-weight: bold;
+}
