@@ -50,19 +50,9 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
-    "node-sass": "4.9.0",
-    "postcss-scss": "1.0.6",
     "react-fontawesome": "1.6.1",
     "react-google-maps": "9.4.5",
-    "react-redux": "5.0.7",
-    "react-router-dom": "4.3.1",
-    "react-router-redux": "4.0.8",
-    "recompose": "0.27.1",
-    "redux": "4.0.0",
-    "redux-devtools-extension": "2.13.5",
-    "redux-thunk": "2.3.0",
-    "sass-loader": "7.0.3",
-    "superagent": "3.8.3"
+    "recompose": "0.27.1"
   },
   "homepage": "./",
   "jest": {
