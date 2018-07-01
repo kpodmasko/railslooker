@@ -16,7 +16,6 @@ class SomeTrainFullInfo extends Component {
         return nextProps !== this.props
     }
 
-
     componentWillReceiveProps(nextProps) {
         this.setState({
             ...nextProps

@@ -18,6 +18,18 @@ class TrainRoute extends Component {
     }
 
     render() {
+        const refactorCoords = coords => {
+
+            if (!coords || !coords.length ) {
+                return "";
+            }
+
+            let lat = coords[0];
+            let lng = coords[1];
+
+            return [ Math.floor(lat * 100000) / 100000, Math.floor(lng * 100000) / 100000 ].join(", ");
+        };
+
         return (
             <div className="TrainRoute tac">
                 <h2 className="TrainRoute__caption">Информация о маршруте</h2>
@@ -35,7 +47,7 @@ class TrainRoute extends Component {
                             Текущие координаты
                         </div>
                         <div className="item item-6 tal">
-                            { (this.state.curCoordinates) ? this.state.curCoordinates.join(",") : "" }
+                            { refactorCoords(this.state.curCoordinates) }
                         </div>
                     </div>
                     <div className="row">
@@ -51,7 +63,7 @@ class TrainRoute extends Component {
                             Координаты отправления
                         </div>
                         <div className="item item-6 tal">
-                            { (this.state.dep) ? this.state.dep.coordinates.join(",") : "" }
+                            { (this.state.dep) ? refactorCoords(this.state.dep.coordinates) : ""  }
                         </div>
                     </div>
                     <div className="row">
@@ -75,7 +87,7 @@ class TrainRoute extends Component {
                             Координаты прибытия
                         </div>
                         <div className="item item-6 tal">
-                            { (this.state.arr) ? this.state.arr.coordinates.join(",") : "" }
+                            { (this.state.arr) ? refactorCoords(this.state.arr.coordinates) : ""  }
                         </div>
                     </div>
                     <div className="row">

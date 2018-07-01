@@ -12,17 +12,17 @@ import cargo from "../img/cargoTrain.png"
 import people from "../img/peopleTrain.png"
 
 class TrainsMap extends Component {
-
     render() {
-        const markersList = this.props.trains.map((train) => {
-            return <Marker
-                key={ "map" + train.number }
+        const markersList = this.props.trains.map(train => (
+            <Marker
+                key={ "mapmark" + train.number }
                 position={ {lat : train.curCoordinates[0], lng: train.curCoordinates[1]} }
                 icon={ (train.type === "Грузовой") ? cargo : people }
             />
-        });
-        const polylinesList = this.props.trains.map((train) => {
-            return <Polyline
+        ));
+
+        const polylinesList = this.props.trains.map(train => (
+            <Polyline
                     key={ "mappoly" + train.number }
                     path={ [
                         {lat: train.dep.coordinates[0], lng: train.dep.coordinates[1]},
@@ -32,17 +32,20 @@ class TrainsMap extends Component {
                     options={ {
                         geodesic: true,
                         strokeColor: (this.props.activeTrain) ?
-                            ( this.props.activeTrain.number === train.number) ? '#FF0000':'#000000'
+                            (this.props.activeTrain.number === train.number) ?
+                                '#FF0000':
+                                '#000000'
                             :'#000000',
                         strokeOpacity: 1.0,
                         strokeWeight: 2
                     } }
             />
-        });
+        ));
 
         return <GoogleMap
             zoom={ (this.props.activeTrain) ? 8 : 5 }
-            center={ (this.props.activeTrain) ?
+            center={
+                (this.props.activeTrain) ?
                 { lat: this.props.activeTrain.curCoordinates[0], lng: this.props.activeTrain.curCoordinates[1] } :
                 { lat: 50.201643, lng: 39.974158}
             }>
@@ -51,10 +54,6 @@ class TrainsMap extends Component {
         </GoogleMap>
     }
 }
-
-
-// const TrainsMap = () => (<div style={{ height: `calc(100vh - 60px)`, width: '100%', backgroundColor :'#aaaaaa'}} />);
-
 
 export default compose(
     withProps({

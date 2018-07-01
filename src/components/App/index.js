@@ -4,6 +4,7 @@ import TrainsMap from "../TrainsMap"
 import SomeTrainFullInfo from "../SomeTrainFullInfo"
 import "./App.css"
 import trains from "../db"
+import scrollIt from "./animation"
 
 class App extends Component {
     constructor (props) {
@@ -39,9 +40,7 @@ class App extends Component {
                     <div className="item item-6">
                         <TrainsMap
                             trains = { this.state.trainsList }
-                            activeTrain = { this.state.trainsList.find((train) => {
-                                return train.number === this.state.activeTrain
-                            }) }
+                            activeTrain = { this.activeTrainInfo(this.state.trainsList, this.state.activeTrain) }
                         />
                     </div>
                     <div className="item item-6">
@@ -55,10 +54,9 @@ class App extends Component {
                 </div>
                 <div className={ (this.state.window) ? "row hide" : "row" }>
                     <div className="item item-12">
-                        <SomeTrainFullInfo { ...this.state.trainsList.find((train) => {
-                            return train.number === this.state.activeTrain
-                        }) }
-                        closeFullInfo = { this.closeFullInfo.bind(this) }
+                        <SomeTrainFullInfo
+                            { ...this.activeTrainInfo(this.state.trainsList, this.state.activeTrain) }
+                            closeFullInfo = { this.closeFullInfo.bind(this) }
                         />
                     </div>
                 </div>
@@ -66,21 +64,26 @@ class App extends Component {
         )
     }
 
-    changeActiveTrain = (newActiveNumber) => {
+    activeTrainInfo = (list, active) => list.find((train) => {
+        return train.number === active
+    });
+
+    changeActiveTrain = newActiveNumber => {
         this.setState({
             activeTrain : newActiveNumber,
             window: false
         });
+        setTimeout(() => scrollIt(50000), 0);
     };
 
-    closeFullInfo() {
+    closeFullInfo = () => {
         this.setState({
             window: true,
             activeTrain: null
         })
-    }
+    };
 
-    changeTrainsList = (fields) => {
+    changeTrainsList = fields => {
         let newTrainsList = [];
 
         if (!fields.name &&
@@ -95,7 +98,8 @@ class App extends Component {
                 }
             }
         }
-        let activeTrain = (newTrainsList.length) ? this.state.activeTrain : null;
+
+        let activeTrain = this.activeTrainInfo(newTrainsList, this.state.activeTrain);
         if (!activeTrain) {
             this.closeFullInfo();
         }
@@ -119,6 +123,7 @@ class App extends Component {
         }
         return true;
     }
+
 }
 
 export default App;
