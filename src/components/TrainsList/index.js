@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import TrainsListItem from "../TrainsListItem.js"
+import TrainsListItem from "../TrainsListItem/index.js"
 import "./TrainsList.css"
 
 class TrainsList extends Component {
