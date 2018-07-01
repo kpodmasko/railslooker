@@ -1,20 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 import "./Closer.css"
-// import FontAwesome from "react-fontawesome"
+import close from "../../img/close.png"
 
-class Closer extends Component{
-  render() {
-      return (
+const Closer = props => (
           <div className="Closer tar">
-          <span className="Closer__item" onClick={ this.props.closeFullInfo }>
-                        {/*<FontAwesome*/}
-              {/*name="rocket"*/}
-              {/*size="2x"/>*/}
-              Х
-          </span>
+              <img src={close} alt="X" className="Closer__item" onClick={ props.closeFullInfo }/>
           </div>
-      )
-  }
-}
+      );
 
 export default Closer;

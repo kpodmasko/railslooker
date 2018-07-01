@@ -23,8 +23,8 @@ class TrainsList extends Component {
             return <TrainsListItem
                 clickHandler = { this.handleClick(train.number) }
                 className = { (this.props.activeTrain === train.number) ? "active" : "" }
-                key = {"list" + train.number}
-                {...train}
+                key = { "list" + train.number }
+                { ...train }
             />
         });
 
@@ -34,34 +34,34 @@ class TrainsList extends Component {
                     <input
                         className="TrainsList__item item item-1"
                         placeholder="№..."
-                        onChange = {this.handleChange("number")}
+                        onChange = { this.handleChange("number") }
                     />
                     <input
                         className="TrainsList__item item item-5"
                         placeholder="Название..."
-                        onChange = {this.handleChange("name")}
+                        onChange = { this.handleChange("name") }
                     />
                     <input
                         className="TrainsList__item item item-3"
                         placeholder="Сообщение..."
-                        onChange = {this.handleChange("route")}
+                        onChange = { this.handleChange("route") }
                     />
                     <input
                         className="TrainsList__item item item-3"
                         placeholder="Состояние..."
-                        onChange = {this.handleChange("status")}
+                        onChange = { this.handleChange("status") }
                     />
                 </div>
-                {trainsList}
+                { trainsList }
             </div>
         )
     }
 
-    handleClick = (number) => () => {
+    handleClick = number => () => {
         this.props.activeTrainSwitcher(number);
     };
 
-    handleChange = (prop) => (event) => {
+    handleChange = prop => event => {
         const newState = {};
         newState[prop] = event.target.value;
 
@@ -69,6 +69,7 @@ class TrainsList extends Component {
             ...this.state,
             ...newState
         });
+
         this.props.listWatcher({...this.state, ...newState});
     };
 }

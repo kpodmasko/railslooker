@@ -45,32 +45,35 @@ class TrainGeneralInfo extends Component{
                             { (this.state.type) ? this.state.type : "" }
                         </div>
                     </div>
-                    { (!this.state.freightOptions) ? "" : <div className="TrainGeneralInfo__typeSwitcher">
-                        <div className="row">
-                            <div className="TrainGeneralInfo__headitem item item-6 tar">
-                                Название груза
+                    { (!this.state.freightOptions) ?
+                        "" :
+                        <div className="TrainGeneralInfo__typeSwitcher">
+                            <div className="row">
+                                <div className="TrainGeneralInfo__headitem item item-6 tar">
+                                    Название груза
+                                </div>
+                                <div className="item item-6 tal">
+                                    { (this.state.freightOptions.cargo) ? this.state.freightOptions.cargo : "" }
+                                </div>
                             </div>
-                            <div className="item item-6 tal">
-                                { (this.state.freightOptions.cargo) ? this.state.freightOptions.cargo : "" }
+                            <div className="row">
+                                <div className="TrainGeneralInfo__headitem item item-6 tar">
+                                    Вес груза
+                                </div>
+                                <div className="item item-6 tal">
+                                    { (this.state.freightOptions.cargoWeight) ? this.state.freightOptions.cargoWeight : "" }
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="TrainGeneralInfo__headitem item item-6 tar">
+                                    Единица измерения груза
+                                </div>
+                                <div className="item item-6 tal">
+                                    { (this.state.freightOptions.cargoUnit) ? this.state.freightOptions.cargoUnit : "" }
+                                </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="TrainGeneralInfo__headitem item item-6 tar">
-                                Вес груза
-                            </div>
-                            <div className="item item-6 tal">
-                                { (this.state.freightOptions.cargoWeight) ? this.state.freightOptions.cargoWeight : "" }
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="TrainGeneralInfo__headitem item item-6 tar">
-                                Единица измерения груза
-                            </div>
-                            <div className="item item-6 tal">
-                                { (this.state.freightOptions.cargoUnit) ? this.state.freightOptions.cargoUnit : "" }
-                            </div>
-                        </div>
-                    </div> }
+                    }
                     <div className="row">
                         <div className="TrainGeneralInfo__headitem item item-6 tar">
                             Количество вагонов

@@ -1,6 +1,11 @@
 .TrainsList__item {
     background-color: honeydew;
     font-size: 16px;
+
+}
+
+.TrainsList__item:hover {
+    cursor:pointer;
 }
 
 input.TrainsList__item {
