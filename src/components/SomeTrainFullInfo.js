@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import Closer from "./Closer"
-import TrainGeneralInfo from "./TrainGeneralInfo"
-import TrainRoute from "./TrainRoute"
+import Closer from "./Closer/index"
+import TrainGeneralInfo from "./TrainGeneralInfo/index"
+import TrainRoute from "./TrainRoute/index"
 
 class SomeTrainFullInfo extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class SomeTrainFullInfo extends Component {
         };
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps) {
         return nextProps !== this.props
     }
 

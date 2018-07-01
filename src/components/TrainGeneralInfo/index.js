@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "../css/TrainGeneralInfo.css"
+import "./TrainGeneralInfo.css"
 
 class TrainGeneralInfo extends Component{
     constructor(props) {
