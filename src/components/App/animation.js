@@ -1,5 +1,4 @@
 export default function scrollIt(destination, duration = 200, easing = 'linear', callback) {
-    console.log(1);
     const easings = {
         linear(t) {
             return t;
