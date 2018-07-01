@@ -1,0 +1,182 @@
+.TrainsList__item {
+    background-color: honeydew;
+    font-size: 16px;
+
+}
+
+.TrainsList__item:hover {
+    cursor:pointer;
+}
+
+input.TrainsList__item {
+    padding: 0;
+    border: 0;
+    outline: 0;
+}.TrainsList {
+  background-color: #f7e7d5;
+  height: calc(100vh - 60px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.TrainsList__header, .TrainsList__footer{
+  background-color:  #c4f6b7;
+  color: green;
+}
+
+.Closer__item {
+  width: 50px;
+  height: 50px;
+}
+
+.Closer__item:hover {
+  cursor: pointer;
+}.TrainGeneralInfo {
+  height: calc(100vh - 137px);
+  background-color: #c4f6b7;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow-y: scroll;
+}
+
+.TrainGeneralInfo__caption {
+    font-size: 25px;
+}
+
+.TrainGeneralInfo__description {
+  font-size: 20px;
+}
+
+.TrainGeneralInfo__headitem {
+  font-weight: bold;
+}.TrainRoute {
+  height: calc(100vh - 137px);
+  background-color:  #f7e7d5;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow-y: scroll;
+}
+
+.TrainRoute__caption {
+  font-size: 25px;
+}
+
+.TrainRoute__description {
+  font-size: 20px;
+}
+
+.TrainRoute__headitem {
+  font-weight: bold;
+}.App {
+  background-color: ghostwhite;
+}body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+#root {
+  width: 100vw;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tac {
+  text-align: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.active {
+    background-color: lightblue;
+}
+
+.hide {
+  display: none !important;
+}
+
+.unvisible {
+  visibility: hidden;
+}
+
+div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 2000px;
+  min-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 30px;
+}
+
+.row {
+  overflow: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.item {
+  margin: 15px;
+}
+
+.item-12 {
+    width: calc(100% / 12 * 12  - 30px);
+}
+
+.item-11 {
+  width: calc(100% / 12 * 11  - 30px);
+}
+
+.item-10 {
+  width: calc(100% / 12 * 10  - 30px);
+}
+
+.item-9 {
+  width: calc(100% / 12 * 9  - 30px);
+}
+
+.item-8 {
+  width: calc(100% / 12 * 8  - 30px);
+}
+
+.item-7 {
+  width: calc(100% / 12 * 7  - 30px);
+}
+
+.item-6 {
+  width: calc(100% / 12 * 6  - 30px);
+}
+
+.item-5 {
+  width: calc(100% / 12 * 5  - 30px);
+}
+
+.item-4 {
+  width: calc(100% / 12 * 4  - 30px);
+}
+
+.item-3 {
+  width: calc(100% / 12 * 3  - 30px);
+}
+
+.item-2 {
+  width: calc(100% / 12 * 2  - 30px);
+}
+
+.item-2 {
+  width: calc(100% / 12 * 2  - 30px);
+}
+
+.item-1 {
+  width: calc(100% / 12 * 1  - 30px);
+}
+/*# sourceMappingURL=main.7ebbd948.css.map*/
