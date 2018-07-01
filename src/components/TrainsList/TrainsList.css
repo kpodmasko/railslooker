@@ -5,19 +5,8 @@
   overflow-y: scroll;
 }
 
-
-.TrainsList__item{
-  background-color: honeydew;
-  font-size: 16px;
-}
-
 .TrainsList__header, .TrainsList__footer{
   background-color:  #c4f6b7;
   color: green;
 }
 
-input.TrainsList__item {
-  padding: 0;
-  border: 0;
-  outline: 0;
-}

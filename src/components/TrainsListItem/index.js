@@ -27,6 +27,6 @@ class TrainsListItem extends Component{
             </div>
         )
     }
-};
+}
 
 export default TrainsListItem;
