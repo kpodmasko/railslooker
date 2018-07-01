@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import TrainsListItem from "./TrainsListItem.js"
-import "../css/TrainsList.css"
+import TrainsListItem from "../TrainsListItem.js"
+import "./TrainsList.css"
 
 class TrainsList extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class TrainsList extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps) {
         return nextProps !== this.props
     }
 
@@ -57,7 +57,7 @@ class TrainsList extends Component {
         )
     }
 
-    handleClick = (number) => (event) => {
+    handleClick = (number) => () => {
         this.props.activeTrainSwitcher(number);
     };
 

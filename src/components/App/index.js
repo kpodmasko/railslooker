@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import TrainsList from "./TrainsList"
-import TrainsMap from "./TrainsMap"
-import SomeTrainFullInfo from "./SomeTrainFullInfo"
-import "../css/App.css"
-import trains from "./db"
+import TrainsList from "../TrainsList/index"
+import TrainsMap from "../TrainsMap"
+import SomeTrainFullInfo from "../SomeTrainFullInfo"
+import "./App.css"
+import trains from "../db"
 
 class App extends Component {
     constructor (props) {

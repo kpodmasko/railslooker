@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "../css/TrainRoute.css"
+import "./TrainRoute.css"
 
 
 class TrainRoute extends Component {

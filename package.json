@@ -50,7 +50,6 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
-    "react-fontawesome": "1.6.1",
     "react-google-maps": "9.4.5",
     "recompose": "0.27.1"
   },

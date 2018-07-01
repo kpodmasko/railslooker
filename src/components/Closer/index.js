@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "../css/Closer.css"
+import "./Closer.css"
 // import FontAwesome from "react-fontawesome"
 
 class Closer extends Component{
