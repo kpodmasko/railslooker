@@ -45,13 +45,19 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "start-server": "node server/index.js",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "express": "4.16.3",
+    "lowdb": "1.0.0",
+    "node": "10.5.0",
     "react-google-maps": "9.4.5",
-    "recompose": "0.27.1"
+    "recompose": "0.27.1",
+    "socket.io": "2.1.1",
+    "socket.io-client": "2.1.1"
   },
   "homepage": "./",
   "jest": {

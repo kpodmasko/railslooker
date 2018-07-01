@@ -3,19 +3,41 @@ import TrainsList from "../TrainsList/index"
 import TrainsMap from "../TrainsMap"
 import SomeTrainFullInfo from "../SomeTrainFullInfo"
 import "./App.css"
-import trains from "../db"
 import scrollIt from "./animation"
+import socketIOClient from "socket.io-client"
+
+
 
 class App extends Component {
     constructor (props) {
         super(props);
 
         this.state = {
+            db: [],
             window: true,
-            trainsList : trains,
+            trainsList : [],
             activeTrain : null
         };
     }
+
+    componentDidMount() {
+        const socket = socketIOClient("http://localhost:3000");
+
+        socket.on("db", data => {
+            const trains = [...JSON.parse(data)].map(train => {
+                            train.number = train.number + "";
+                            train.type = (train.type === 1) ? "Грузовой" : "Пассажирский";
+                            train.route = train.dep.place + "-" + train.arr.place;
+                            train.status = (train.status) ? "Прибыл" : "В пути";
+
+                            return train;
+                        });
+            this.setState({
+                            db: trains,
+                            trainsList: trains
+                        });
+        });
+    };
 
     shouldComponentUpdate(nextProps, nextState) {
         if (this.state.window !== nextState.window) {
@@ -90,9 +112,9 @@ class App extends Component {
             !fields.number &&
             !fields.route &&
             !fields.status) {
-            newTrainsList = trains;
+            newTrainsList = this.state.db;
         } else {
-            for (let train of trains) {
+            for (let train of this.state.db) {
                 if (this.checkOneTrain(train, fields)) {
                     newTrainsList.push(train);
                 }
