@@ -24,18 +24,38 @@ class App extends Component {
         const socket = socketIOClient("http://localhost:3000");
 
         socket.on("db", data => {
-            const trains = [...JSON.parse(data)].map(train => {
-                            train.number = train.number + "";
-                            train.type = (train.type === 1) ? "Грузовой" : "Пассажирский";
-                            train.route = train.dep.place + "-" + train.arr.place;
-                            train.status = (train.status) ? "Прибыл" : "В пути";
+            const trains = [...JSON.parse(data)]
+                .map(train => {
+                    train.number = train.number + "";
+                    train.type = (train.type === 1) ? "Грузовой" : "Пассажирский";
+                    train.route = train.dep.place + "-" + train.arr.place;
+                    train.status = (train.status) ? "Прибыл" : "В пути";
 
-                            return train;
-                        });
+                    return train;
+                });
+
+        const filterDb = () => {
+            const newTrainList = [];
+
+            if (!this.state.trainsList.length) {
+                return trains;
+            }
+
+            this.state.trainsList.forEach(trainInList => {
+                trains.forEach(trainInDb => {
+                    if (trainInDb.number === trainInList.number) {
+                        newTrainList.push(trainInDb);
+                    }
+                });
+            });
+
+            return newTrainList;
+        };
+
             this.setState({
-                            db: trains,
-                            trainsList: trains
-                        });
+                db: trains,
+                trainsList: filterDb()
+            });
         });
     };
 
