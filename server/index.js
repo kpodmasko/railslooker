@@ -66,7 +66,7 @@ io.on('connection', socket => {
                         console.log("arrive");
                     }
                     socket.emit("db", JSON.stringify(db.get("trains")));
-                }, (1000 * ip) + 2000);
+                }, (10000 * ip) + 2000);
             });
         },0);
     });
