@@ -12,8 +12,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-io.on('connection', socket => {
-    console.log('user connected');
+io.on("connection", socket => {
+    console.log("connect");
 
     const trains = db.get("trains").value();
     trains.forEach((train, i) => {
@@ -71,8 +71,8 @@ io.on('connection', socket => {
         },0);
     });
 
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
+    socket.on("disconnect", () => {
+        console.log("disconnect");
     })
 });
 

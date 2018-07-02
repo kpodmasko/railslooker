@@ -33,9 +33,9 @@ class TrainsMap extends Component {
                         geodesic: true,
                         strokeColor: (this.props.activeTrain) ?
                             (this.props.activeTrain.number === train.number) ?
-                                '#FF0000':
-                                '#000000'
-                            :'#000000',
+                                "#FF0000":
+                                "#000000"
+                            :"#000000",
                         strokeOpacity: 1.0,
                         strokeWeight: 2
                     } }
