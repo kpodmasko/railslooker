@@ -25,14 +25,13 @@ class SomeTrainFullInfo extends Component {
     render() {
         return (
             <div className="SomeTrainFullInfo row">
-                <div className="item item-10"></div>
-                <div className="item item-2">
+                <div className="col-xs-offset-10 col-xs-2">
                     <Closer closeFullInfo = { this.state.closeFullInfo }/>
                 </div>
-                <div className="item item-6">
+                <div className="col-xs-12 col-md-6">
                     <TrainGeneralInfo { ...this.state }/>
                 </div>
-                <div className="item item-6">
+                <div className="col-xs-12 col-md-6">
                     <TrainRoute { ...this.state }/>
                 </div>
             </div>

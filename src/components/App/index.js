@@ -2,9 +2,10 @@ import React, { Component } from "react"
 import TrainsList from "../TrainsList/index"
 import TrainsMap from "../TrainsMap"
 import SomeTrainFullInfo from "../SomeTrainFullInfo"
-import "./App.css"
 import scrollIt from "./animation"
 import socketIOClient from "socket.io-client"
+import logo from "../../img/logo.png"
+import "./App.css"
 
 
 
@@ -79,13 +80,18 @@ class App extends Component {
         return (
             <div className="App container">
                 <div className="row">
-                    <div className="item item-6">
+                    <div className="logo">
+                        <img src={logo} alt="Подмаско Константин" className="logo__item"/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-xs-12 col-md-6">
                         <TrainsMap
                             trains = { this.state.trainsList }
                             activeTrain = { this.activeTrainInfo(this.state.trainsList, this.state.activeTrain) }
                         />
                     </div>
-                    <div className="item item-6">
+                    <div className="col-xs-12 col-md-6">
                         <TrainsList
                             trains = { this.state.trainsList }
                             activeTrain = { this.state.activeTrain }
@@ -95,7 +101,7 @@ class App extends Component {
                     </div>
                 </div>
                 <div className={ (this.state.window) ? "row hide" : "row" }>
-                    <div className="item item-12">
+                    <div className="col-xs-12">
                         <SomeTrainFullInfo
                             { ...this.activeTrainInfo(this.state.trainsList, this.state.activeTrain) }
                             closeFullInfo = { this.closeFullInfo.bind(this) }

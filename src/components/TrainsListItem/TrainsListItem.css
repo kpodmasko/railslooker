@@ -1,6 +1,14 @@
 .TrainsList__item {
     background-color: honeydew;
-    font-size: 16px;
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.TrainsList__item > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .TrainsList__item:hover {
@@ -8,7 +16,7 @@
 }
 
 input.TrainsList__item {
-    padding: 0;
+    text-align: center;
     border: 0;
     outline: 0;
 }

@@ -1,19 +1,32 @@
 .TrainRoute {
-  height: calc(100vh - 137px);
+  margin-bottom: 40px;
+  height: calc(100vh - 80px);
   background-color:  #f7e7d5;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  overflow-y: scroll;
+  padding: 30px;
+  min-height: 650px;
 }
 
 .TrainRoute__caption {
   font-size: 25px;
+  margin-bottom: 50px;
 }
 
 .TrainRoute__description {
+  text-align: left;
   font-size: 20px;
+}
+
+.TrainRoute__description > .row {
+  background-color: #c4f6b7;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
 }
 
 .TrainRoute__headitem {
   font-weight: bold;
+}
+
+.TrainRoute__headitem + div {
+  word-wrap: break-word;
 }

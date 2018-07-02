@@ -1,19 +1,39 @@
 .TrainGeneralInfo {
-  height: calc(100vh - 137px);
+  margin-bottom: 40px;
+  height: calc(100vh - 80px);
   background-color: #c4f6b7;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  overflow-y: scroll;
+  padding: 30px;
+  min-height: 650px;
 }
 
 .TrainGeneralInfo__caption {
     font-size: 25px;
+    margin-bottom: 50px;
 }
 
 .TrainGeneralInfo__description {
+  text-align: left;
   font-size: 20px;
+}
+
+.TrainGeneralInfo__description > .row {
+  background-color: #f7e7d5;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.TrainGeneralInfo__typeSwitcher > .row {
+  background-color: #f7e7d5;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .TrainGeneralInfo__headitem {
   font-weight: bold;
+  padding: 5px;
+}
+
+.TrainGeneralInfo__headitem + div {
+  word-wrap: break-word;
 }
