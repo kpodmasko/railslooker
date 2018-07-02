@@ -12,8 +12,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-io.on('connection', socket => {
-    console.log('user connected');
+io.on("connection", socket => {
+    console.log("connect");
 
     const trains = db.get("trains").value();
     trains.forEach((train, i) => {
@@ -47,7 +47,7 @@ io.on('connection', socket => {
                     db.get("trains[" + i + "].curCoordinates")
                         .assign(path)
                         .write();
-                    console.log("new step");
+                    console.log(i + ": new step");
                     if (paths.length-1 === ip &&
                         db.get("trains[" + i + "].curCoordinates").value().join(",") === path.join(",")) {
                         db.get("trains[" + i + "]")
@@ -63,7 +63,7 @@ io.on('connection', socket => {
                                 arrDate.getSeconds()
                             })
                             .write();
-                        console.log("arrive");
+                        console.log(i + ": arrive");
                     }
                     socket.emit("db", JSON.stringify(db.get("trains")));
                 }, (10000 * ip) + 2000);
@@ -71,8 +71,8 @@ io.on('connection', socket => {
         },0);
     });
 
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
+    socket.on("disconnect", () => {
+        console.log("disconnect");
     })
 });
 
