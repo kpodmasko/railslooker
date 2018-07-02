@@ -30,24 +30,24 @@ class TrainsList extends Component {
 
         return (
             <div className="TrainsList tac">
-                <div className="TrainsList__header row">
+                <div className="TrainsList__header col-xs-12">
                     <input
-                        className="TrainsList__item item item-1"
+                        className="TrainsList__item col-xs-1"
                         placeholder="№..."
                         onChange = { this.handleChange("number") }
                     />
                     <input
-                        className="TrainsList__item item item-5"
+                        className="TrainsList__item col-xs-offset-1 col-xs-4"
                         placeholder="Название..."
                         onChange = { this.handleChange("name") }
                     />
                     <input
-                        className="TrainsList__item item item-3"
+                        className="TrainsList__item col-xs-offset-1 col-xs-2"
                         placeholder="Сообщение..."
                         onChange = { this.handleChange("route") }
                     />
                     <input
-                        className="TrainsList__item item item-3"
+                        className="TrainsList__item col-xs-offset-1 col-xs-2"
                         placeholder="Состояние..."
                         onChange = { this.handleChange("status") }
                     />

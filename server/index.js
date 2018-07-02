@@ -12,6 +12,14 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+const addZeroOrNot = digit => {
+    if (parseInt(digit) < 10) {
+        return '0' + digit
+    }
+
+    return digit;
+};
+
 io.on("connection", socket => {
     console.log("connect");
 
@@ -19,12 +27,12 @@ io.on("connection", socket => {
     trains.forEach((train, i) => {
         let depDate = new Date();
         db.get("trains[" + i + "].dep")
-            .assign({ date: depDate.getDay() + "." +
-                depDate.getMonth() + "." +
-                depDate.getFullYear() + ". " +
-                depDate.getHours() + ":" +
-                depDate.getMinutes() + ":" +
-                depDate.getSeconds()
+            .assign({ date: addZeroOrNot(depDate.getDay()) + "." +
+                addZeroOrNot(depDate.getMonth()) + "." +
+                addZeroOrNot(depDate.getFullYear()) + ". " +
+                addZeroOrNot(depDate.getHours()) + ":" +
+                addZeroOrNot(depDate.getMinutes()) + ":" +
+                addZeroOrNot(depDate.getSeconds())
             })
             .write();
         db.get("trains[" + i + "]")
@@ -55,12 +63,12 @@ io.on("connection", socket => {
                             .write();
                         let arrDate = new Date();
                         db.get("trains[" + i + "].arr")
-                            .assign({ date: arrDate.getDay() + "." +
-                                arrDate.getMonth() + "." +
-                                arrDate.getFullYear() + ". " +
-                                arrDate.getHours() + ":" +
-                                arrDate.getMinutes() + ":" +
-                                arrDate.getSeconds()
+                            .assign({ date: addZeroOrNot(arrDate.getDay()) + "." +
+                                addZeroOrNot(arrDate.getMonth()) + "." +
+                                addZeroOrNot(arrDate.getFullYear()) + ". " +
+                                addZeroOrNot(arrDate.getHours()) + ":" +
+                                addZeroOrNot(arrDate.getMinutes()) + ":" +
+                                addZeroOrNot(arrDate.getSeconds())
                             })
                             .write();
                         console.log(i + ": arrive");

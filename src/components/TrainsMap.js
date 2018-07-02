@@ -33,9 +33,13 @@ class TrainsMap extends Component {
                         geodesic: true,
                         strokeColor: (this.props.activeTrain) ?
                             (this.props.activeTrain.number === train.number) ?
-                                "#FF0000":
-                                "#000000"
-                            :"#000000",
+                                "#000000" :
+                                (train.status === "В пути") ?
+                                    "#FF0000" :
+                                    "#00FF00"
+                            :(train.status === "В пути") ?
+                                "#FF0000" :
+                                "#00FF00",
                         strokeOpacity: 1.0,
                         strokeWeight: 2
                     } }
@@ -43,7 +47,7 @@ class TrainsMap extends Component {
         ));
 
         return <GoogleMap
-            zoom={ (this.props.activeTrain) ? 8 : 5 }
+            zoom={ (this.props.activeTrain) ? 8 : 4 }
             center={
                 (this.props.activeTrain) ?
                 { lat: this.props.activeTrain.curCoordinates[0], lng: this.props.activeTrain.curCoordinates[1] } :
@@ -59,9 +63,11 @@ export default compose(
     withProps({
         googleMapURL:
             "https://maps.googleapis.com/maps/api/js?key=AIzaSyBiTdL-onh2DsG2Jd85DofyfYU03Yp2Lfg&v=3.exp&libraries=geometry,drawing,places",
-        loadingElement: <div style={{ height: `100%`, width: '100%' }} />,
-        containerElement: <div style={{ height: `calc(100vh - 60px)`, width: '100%'}} />,
-        mapElement: <div style={{ height: `100%`, width: '100%' }} />
+        loadingElement: <div style={{ height: `100%`}} className="col-xs-12"/>,
+        containerElement: <div style={{ height: `calc(100vh - 150px)`,
+            marginBottom: `75px`,
+            minHeight: `650px`}} />,
+        mapElement: <div style={{ height: `100%`}} className="col-xs-12"/>
     }),
     withScriptjs,
     withGoogleMap

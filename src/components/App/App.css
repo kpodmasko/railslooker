@@ -1,3 +1,8 @@
-.App {
-  background-color: ghostwhite;
+.logo__item {
+    width:120px;
+    height: 75px;
+}
+
+.container.App {
+    min-width: 500px;
 }

@@ -35,66 +35,66 @@ class TrainRoute extends Component {
                 <h2 className="TrainRoute__caption">Информация о маршруте</h2>
                 <div className="TrainRoute__description">
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Состояние поезда
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.status) ? this.state.status : "" }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Текущие координаты
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { refactorCoords(this.state.curCoordinates) }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Место отправления
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.dep) ? this.state.dep.place : "" }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Координаты отправления
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.dep) ? refactorCoords(this.state.dep.coordinates) : ""  }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Дата отправления
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.dep) ? this.state.dep.date : "" }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Место прибытия
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.arr) ? this.state.arr.place : ""  }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Координаты прибытия
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.arr) ? refactorCoords(this.state.arr.coordinates) : ""  }
                         </div>
                     </div>
                     <div className="row">
-                        <div className="TrainRoute__headitem item item-6 tar">
+                        <div className="TrainRoute__headitem col-xs-6 ">
                             Дата прибытия
                         </div>
-                        <div className="item item-6 tal">
+                        <div className="col-xs-6 ">
                             { (this.state.arr) ? this.state.arr.date : ""  }
                         </div>
                     </div>
