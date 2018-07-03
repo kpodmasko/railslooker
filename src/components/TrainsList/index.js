@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import TrainsListItem from "../TrainsListItem/index.js"
+import Paginator from "../Paginator/index"
 import "./TrainsList.css"
 
 class TrainsList extends Component {
@@ -32,12 +33,12 @@ class TrainsList extends Component {
             <div className="TrainsList tac">
                 <div className="TrainsList__header col-xs-12">
                     <input
-                        className="TrainsList__item col-xs-1"
+                        className="TrainsList__item col-xs-2"
                         placeholder="№..."
                         onChange = { this.handleChange("number") }
                     />
                     <input
-                        className="TrainsList__item col-xs-offset-1 col-xs-4"
+                        className="TrainsList__item col-xs-offset-1 col-xs-3"
                         placeholder="Название..."
                         onChange = { this.handleChange("name") }
                     />
@@ -52,7 +53,7 @@ class TrainsList extends Component {
                         onChange = { this.handleChange("status") }
                     />
                 </div>
-                { trainsList }
+                <Paginator trains = { [...trainsList] }/>
             </div>
         )
     }

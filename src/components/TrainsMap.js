@@ -66,7 +66,8 @@ export default compose(
         loadingElement: <div style={{ height: `100%`}} className="col-xs-12"/>,
         containerElement: <div style={{ height: `calc(100vh - 150px)`,
             marginBottom: `75px`,
-            minHeight: `650px`}} />,
+            minHeight: `650px`}}
+        />,
         mapElement: <div style={{ height: `100%`}} className="col-xs-12"/>
     }),
     withScriptjs,
