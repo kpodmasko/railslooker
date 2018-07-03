@@ -165,7 +165,10 @@ class App extends Component {
                 continue;
             }
 
-            if (train[field].indexOf(fields[field]) === -1) {
+            let trainfield = train[field].toLowerCase();
+            let inputfield = fields[field].toLowerCase();
+
+            if (trainfield.indexOf(inputfield) === -1) {
                 return false;
             }
         }

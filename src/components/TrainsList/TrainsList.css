@@ -3,6 +3,7 @@
   height: calc(100vh - 150px);
   margin-bottom: 75px;
   min-height: 650px;
+  position: relative;
 }
 
 .TrainsList__header, .TrainsList__footer{
@@ -10,8 +11,22 @@
    color: green;
  }
 
-.TrainsList__header, .TrainsList__footer{
-  background-color:  #c4f6b7;
-  color: green;
+.TrainsList__footer {
+    position: absolute !important;
+    left: 0;
+    bottom:0;
+    max-height:100%;
+}
+
+.TrainsList__footer img {
+    width: 25px;
+}
+
+.TrainsList__footer img.trans {
+    transform: scaleX(-1);
+}
+
+.TrainsList__footer > div{
+  background-color:  honeydew;
 }
 
