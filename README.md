@@ -8,7 +8,7 @@
     <li> Download or clone repo. </li>
     <li> Open 2 bashes</li>
     <li> Go to project directory </li>
-    <li> <strong>npm install</li>
+    <li> <strong>npm install</strong></li>
     <li> First bash <strong>yarn start-server</strong></li>
     <li> Second bash <strong>yarn start</strong></li>
 </ol>
